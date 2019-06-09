@@ -1,0 +1,28 @@
+﻿@model Segundodotnet.Models.ArtistaModel
+
+
+@{
+    ViewBag.Title = "EditarCd";
+}
+
+<h2>EditarCd</h2>
+                       
+@using (Html.BeginForm("EditarCd", "cd"))
+
+{
+
+@Html.HiddenFor(obj => obj.ArtistaId)
+
+<div class="form-group">
+
+@Html.LabelFor(obj => obj.NomeArtista)
+@Html.TextBoxFor(obj => obj.NomeArtista, new { @class = "form-control" })
+
+</div>
+
+<div>
+    <input type="submit" value="salvar" class="btn" />
+
+</div>
+}
+

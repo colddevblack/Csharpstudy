@@ -1,0 +1,66 @@
+﻿@model List<Segundodotnet.Models.ArtistaModel>
+
+@{ 
+    ViewBag.Title = "Loja Records Cds";
+}
+
+
+<h2>@ViewBag.CadastroCd</h2>
+
+<div>
+
+    @Html.ActionLink("Cadastro de CD", "CadastrarCd", "Cd")
+
+
+</div>
+
+{
+
+<div class="form-group">
+    <label for='ArtistaId' class="control-label">Artista</label>
+    @Html.DropDownList("ArtistaId", new SelectList(ViewBag.Artista, "ArtistaId", "NomeArtista"),
+        "Selecione", new { @class = "form-control", @onchange = "submit();" })
+</div>
+
+
+
+    }
+
+
+<script src="~/Content/ajaxdel.js"></script>
+
+<div>
+
+    <table class="table">
+        <tr>
+            <th>Artista Id</th>
+            <th>Nome Artista</th>
+            <th>Menu editar model</th>
+            <th>Menu apagar em model</th>
+            <th>Menu Excluir em Ajax</th>
+        </tr>
+        @foreach (var item in Model)
+
+        {
+            <tr>
+                <td>@item.ArtistaId</td>
+                <td>@item.NomeArtista</td>
+                <td>@Html.ActionLink("EDITAR" , "EditarCd" , "Cd",  new { id = item.ArtistaId }, null)</td>
+                <td>@Html.ActionLink("Apagar Cadastro", "Apagar", "Cd", new { id = item.ArtistaId }, null)</td>
+                <td><button class="btn" value="@item.ArtistaId" id="btnajax" name="btnajax">Botao Ajax Excluir</button></td>
+
+               
+
+            </tr>
+        }
+    </table>
+
+    
+   
+
+
+</div>
+
+
+
+

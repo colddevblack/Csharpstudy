@@ -1,0 +1,42 @@
+﻿@model Segundodotnet.Models.ArtistaModel
+
+
+@{
+    ViewBag.Title = "CadastrarCd";
+}
+
+
+<h2>Cadastrar CD</h2>
+
+@using (Html.BeginForm("CadastrarCd", "cd"))
+
+{
+    <div class="form-group">
+        @Html.LabelFor(obj => obj.NomeArtista)
+        @Html.TextBoxFor(obj => obj.NomeArtista, new { @class = "form-control"})
+
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(obj => obj.NomeDisco)
+            @Html.TextBoxFor(obj => obj.NomeDisco, new { @class = "form-control" })
+
+        </div>
+
+
+            <div class="form-group">
+                @Html.LabelFor(obj => obj.AnoDisco)
+                @Html.TextBoxFor(obj => obj.AnoDisco, new { @class = "form-control" })
+
+                </div>
+                    
+                 <div>
+                    <input type="submit" value="salvar" class="btn" />
+
+                </div>
+
+
+           
+            }
+
